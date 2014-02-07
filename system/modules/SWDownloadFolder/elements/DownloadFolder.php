@@ -139,10 +139,10 @@ class DownloadFolder extends \ContentElement
 
 				if (!in_array($objFile->extension, $allowedDownload) || preg_match('/^meta(_[a-z]{2})?\.txt$/', $objFile->basename))
 					continue;
-
+					
 				$Pathinfo = pathinfo($objFiles->path);
 					/* The Zip-Path D: */
-				exec("cd ".TL_ROOT."/".$Pathinfo['dirname']." && zip ".TL_ROOT.'/'.$downloadFile." ".$Pathinfo['filename'].".".$Pathinfo['extension'],$var);
+				exec("cd '".TL_ROOT."/".$Pathinfo['dirname']."' && zip ".TL_ROOT.'/'.$downloadFile." ".$Pathinfo['filename'].".".$Pathinfo['extension'],$var);
 				#echo 'Dirname: '.$Pathinfo['dirname'].'<br>';
 				#echo '<pre>'.print_r($var,1).'</pre>';
 			}
